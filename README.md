@@ -14,3 +14,11 @@ class work for GA DS
 
 Sample code, this is  HTML<br>
 `<html><body>Hello</body></html>`
+
+
+<br>
+This is python.<br>
+`import os
+print 'Hello Max'
+
+`
