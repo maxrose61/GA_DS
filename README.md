@@ -12,5 +12,5 @@ class work for GA DS
 
 ***Why? I mean, why bold italic?***
 
-Sample code, this is  HTML
+Sample code, this is  HTML<br>
 `<html><body>Hello</body></html>`
