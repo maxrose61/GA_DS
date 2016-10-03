@@ -56,7 +56,7 @@ Black beans are more popular by a 2 to 1 margin.
 
 ### Find all the data files (CSV, TSV) in the repo
 
-find . | grep -E 'tsv|csv' > alldatafiles.txt
+`find . | grep -E 'tsv|csv' > alldatafiles.txt`
 
 ./data/Airline_on_time_west_coast.csv
 ./data/airlines.csv
@@ -91,7 +91,7 @@ find . | grep -E 'tsv|csv' > alldatafiles.txt
 
 ### Occurances of the word "dictionary":
 Searching from the root of my local class repository:
-maxr-mp:DS-SEA-4 maxrose$ <br>
+maxr-mp:DS-SEA-4 maxrose$ 
 `for file in $(find . | grep -E 'tsv|csv'); do grep -i 'dictionary' $file| wc -w; done | paste -s -d+ - | bc`
 * 188
 
@@ -99,4 +99,3 @@ maxr-mp:DS-SEA-4 maxrose$ <br>
 
 
  
-
