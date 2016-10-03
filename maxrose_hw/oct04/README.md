@@ -2,7 +2,7 @@
 
 
 ### Description of data file
-**Structure of the file**
+**Structure of the file**<br>
 To retrieve the column headers, I used a head command: `head -n 1 chipotle.csv`
 
 To retrieve the column headers, I used a head command: `head -n 1 chipotle.csv`
@@ -106,6 +106,9 @@ How do people like their Salsa?
 * Medium: 355
 `cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'hot' | sort -k 1 | wc -l`<br>
 * Hot: 259
+
+
+
 
 
  
