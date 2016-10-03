@@ -3,24 +3,28 @@
 
 ### Description of data file
 **Structure of the file**
-To retrieve the column headers, I used a head command: "head -n 1 chipotle.csv"
+To retrieve the column headers, I used a head command: `head -n 1 chipotle.csv`
 
-order_id	quantity	item_name	choice_description	item_price
+To retrieve the column headers, I used a head command: `head -n 1 chipotle.csv`
 
-Reviewing the contents of the file I see multiple items share an order_id (multiple rows):
-order_id	quantity	item_name	choice_description	item_price
-1	1	Chips and Fresh Tomato Salsa	NULL	$2.39 
-1	1	Izze	[Clementine]	$3.39 
-1	1	Nantucket Nectar	[Apple]	$3.39 
-1	1	Chips and Tomatillo-Green Chili Salsa	NULL	$2.39
+| order_id | quantity | item_name | choice_description | item_price | 
+
+Reviewing the contents of the file I see multiple items share an order_id (multiple rows).
+
+| order_id | quantity | item_name | choice_description | item_price | 
+|-------|--------|----------|------------|----------:| 
+| 1 | 1 | Chips and Fresh Tomato Salsa | NULL | $2.39 | 
+| 1 | 1 | Izze | [Clementine] | $3.39  | 
+| 1 | 1 | Nantucket Nectar | [Apple] | $3.39  | 
+| 1 | 1 | Chips and Tomatillo-Green Chili Salsa | NULL | $2.39 | 
 
 
 Multiple items share the order_id, so I can use a piped command to get the number of unique order ids:
-cat chipotle.tsv | cut -f 1 | uniq | wc -l
+`cat chipotle.tsv | cut -f 1 | uniq | wc -l`
 Which returns 1835, though that includes the header row.
 
 We could subtract 1 for the header or use this command:
-cat chipotle.tsv | cut -f 1 | uniq | tail -n 1
+`cat chipotle.tsv | cut -f 1 | uniq | tail -n 1`
 Returns the last row with the order id of 1834, the highest/last order_id.
 
 **Number of lines in the file:**
