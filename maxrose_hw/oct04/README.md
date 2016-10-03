@@ -3,17 +3,21 @@
 
 ### Description of data file
 **Structure of the file**
-To retrieve the column headers, I used a head command: "head -n 1 chipotle.csv"
+To retrieve the column headers, I used a head command: `head -n 1 chipotle.csv`
 
-order_id	quantity	item_name	choice_description	item_price
+To retrieve the column headers, I used a head command: `head -n 1 chipotle.csv`
 
-Reviewing the contents of the file I see multiple items share an order_id (multiple rows):
-|order_id|quantity|item_name|choice_description|item_price
-|::-------|--------|----------|------------|----------:|
-|1|1|Chips and Fresh Tomato Salsa|NULL|$2.39|
-|1|1|Izze|[Clementine]|$3.39 |
-|1|1|Nantucket Nectar|[Apple]|$3.39 |
-|1|1|Chips and Tomatillo-Green Chili Salsa|NULL|$2.39|
+| order_id | quantity | item_name | choice_description | item_price | 
+
+Reviewing the contents of the file I see multiple items share an order_id (multiple rows).
+
+| order_id | quantity | item_name | choice_description | item_price | 
+|-------|--------|----------|------------|----------:| 
+| 1 | 1 | Chips and Fresh Tomato Salsa | NULL | $2.39 | 
+| 1 | 1 | Izze | [Clementine] | $3.39  | 
+| 1 | 1 | Nantucket Nectar | [Apple] | $3.39  | 
+| 1 | 1 | Chips and Tomatillo-Green Chili Salsa | NULL | $2.39 | 
+
 
 Multiple items share the order_id, so I can use a piped command to get the number of unique order ids:
 cat chipotle.tsv | cut -f 1 | uniq | wc -l
@@ -39,9 +43,21 @@ cat chipotle.tsv | cut -f3 | grep -i 'burrito' | sort | uniq -c
   
 Looks like chicken is the winner!
 
+#### You want beans with that burrito?
+
+`cat chipotle.tsv | cut -f3,4 | grep -i 'chicken burrito' | grep -i 'pinto bean' | sort -k 1 | wc -l`<br>
+* 105
+
+
+`cat chipotle.tsv | cut -f3,4 | grep -i 'chicken burrito' | grep -i 'black bean' | sort -k 1 | wc -l`<br> 
+* 282
+
+
+Black beans are more popular more than a 2 to 1 margin.
+
 ### Find all the data files (CSV, TSV) in the repo
 
-find . | grep -E 'tsv|csv' > alldatafiles.txt
+`find . | grep -E 'tsv|csv' > alldatafiles.txt`
 
 ./data/Airline_on_time_west_coast.csv
 ./data/airlines.csv
@@ -74,8 +90,22 @@ find . | grep -E 'tsv|csv' > alldatafiles.txt
 ./data/vehicles_train.csv
 ./data/yelp.csv
 
+### Occurances of the word "dictionary":
+Searching from the root of my local class repository:
+maxr-mp:DS-SEA-4 maxrose$ 
+`for file in $(find . | grep -E 'tsv|csv'); do grep -i 'dictionary' $file| wc -w; done | paste -s -d+ - | bc`
+* 188
 
+## Hot, Medium or Mild?
 
+How do people like their Salsa?
+
+`cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'mild'  | sort -k 1 | wc -l`<br>
+* Mild: 351
+`cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'medium'| sort -k 1 | wc -l`<br>
+* Medium: 355
+`cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'hot' | sort -k 1 | wc -l`<br>
+* Hot: 259
 
 
  
