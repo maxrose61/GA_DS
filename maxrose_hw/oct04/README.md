@@ -45,14 +45,15 @@ Looks like chicken is the winner!
 
 #### You want beans with that burrito?
 
-`cat chipotle.tsv | cut -f3,4 | grep -i 'burrito' | grep -i 'black bean' | sort -k 1 | wc -l`
+`cat chipotle.tsv | cut -f3,4 | grep -i 'chicken burrito' | grep -i 'pinto bean' | sort -k 1 | wc -l`<br>
+* 105
 
-* 544
 
-`cat chipotle.tsv | cut -f3,4 | grep -i 'burrito' | grep -i 'pinto bean' | sort -k 1 | wc -l`
-* 284
+`cat chipotle.tsv | cut -f3,4 | grep -i 'chicken burrito' | grep -i 'black bean' | sort -k 1 | wc -l`<br> 
+* 282
 
-Black beans are more popular by a 2 to 1 margin.
+
+Black beans are more popular more than a 2 to 1 margin.
 
 ### Find all the data files (CSV, TSV) in the repo
 
@@ -99,3 +100,4 @@ maxr-mp:DS-SEA-4 maxrose$
 
 
  
+
