@@ -1,7 +1,47 @@
 ## Command Line Chipotle Homework
 
-find . | grep -E 'tsv|csv' > alldatafiles.txt
 
+### Description of data file
+**Structure of the file**
+To retrieve the column headers, I used a head command: "head -n 1 chipotle.csv"
+
+order_id	quantity	item_name	choice_description	item_price
+
+Reviewing the contents of the file I see multiple items share an order_id (multiple rows):
+|order_id|quantity|item_name|choice_description|item_price
+|::-------|--------|----------|------------|----------:|
+|1|1|Chips and Fresh Tomato Salsa|NULL|$2.39|
+|1|1|Izze|[Clementine]|$3.39 |
+|1|1|Nantucket Nectar|[Apple]|$3.39 |
+|1|1|Chips and Tomatillo-Green Chili Salsa|NULL|$2.39|
+
+Multiple items share the order_id, so I can use a piped command to get the number of unique order ids:
+cat chipotle.tsv | cut -f 1 | uniq | wc -l
+Which returns 1835, though that includes the header row.
+
+We could subtract 1 for the header or use this command:
+cat chipotle.tsv | cut -f 1 | uniq | tail -n 1
+Returns the last row with the order id of 1834, the highest/last order_id.
+
+**Number of lines in the file:**
+wc -l chipotle.tsv 
+* 4623
+
+### Let's Talk Burritos
+What is more popular?
+cat chipotle.tsv | cut -f3 | grep -i 'burrito' | sort | uniq -c
+* 91 Barbacoa Burrito
+*  6 Burrito
+* 59 Carnitas Burrito
+* 553 Chicken Burrito
+* 368 Steak Burrito
+* 95 Veggie Burrito
+  
+Looks like chicken is the winner!
+
+### Find all the data files (CSV, TSV) in the repo
+
+find . | grep -E 'tsv|csv' > alldatafiles.txt
 
 ./data/Airline_on_time_west_coast.csv
 ./data/airlines.csv
@@ -33,3 +73,10 @@ find . | grep -E 'tsv|csv' > alldatafiles.txt
 ./data/vehicles_test.csv
 ./data/vehicles_train.csv
 ./data/yelp.csv
+
+
+
+
+
+ 
+
