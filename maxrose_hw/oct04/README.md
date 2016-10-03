@@ -52,6 +52,7 @@ Looks like chicken is the winner!
 `cat chipotle.tsv | cut -f3,4 | grep -i 'burrito' | grep -i 'pinto bean' | sort -k 1 | wc -l`
 * 284
 
+Black beans are more popular by a 2 to 1 margin.
 
 ### Find all the data files (CSV, TSV) in the repo
 
