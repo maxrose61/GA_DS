@@ -89,6 +89,11 @@ find . | grep -E 'tsv|csv' > alldatafiles.txt
 ./data/vehicles_train.csv
 ./data/yelp.csv
 
+### Occurances of the word "dictionary":
+Searching from the root of my local class repository:
+maxr-mp:DS-SEA-4 maxrose$ <br>
+`for file in $(find . | grep -E 'tsv|csv'); do grep -i 'dictionary' $file| wc -w; done | paste -s -d+ - | bc`
+* 188
 
 
 
