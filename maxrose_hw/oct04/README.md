@@ -20,11 +20,11 @@ Reviewing the contents of the file I see multiple items share an order_id (multi
 
 
 Multiple items share the order_id, so I can use a piped command to get the number of unique order ids:
-`cat chipotle.tsv | cut -f 1 | uniq | wc -l`
+cat chipotle.tsv | cut -f 1 | uniq | wc -l
 Which returns 1835, though that includes the header row.
 
 We could subtract 1 for the header or use this command:
-`cat chipotle.tsv | cut -f 1 | uniq | tail -n 1`
+cat chipotle.tsv | cut -f 1 | uniq | tail -n 1
 Returns the last row with the order id of 1834, the highest/last order_id.
 
 **Number of lines in the file:**
@@ -42,6 +42,16 @@ cat chipotle.tsv | cut -f3 | grep -i 'burrito' | sort | uniq -c
 * 95 Veggie Burrito
   
 Looks like chicken is the winner!
+
+#### You want beans with that burrito?
+
+`cat chipotle.tsv | cut -f3,4 | grep -i 'burrito' | grep -i 'black bean' | sort -k 1 | wc -l`
+
+* 544
+
+`cat chipotle.tsv | cut -f3,4 | grep -i 'burrito' | grep -i 'pinto bean' | sort -k 1 | wc -l`
+* 284
+
 
 ### Find all the data files (CSV, TSV) in the repo
 
