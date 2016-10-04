@@ -102,8 +102,10 @@ How do people like their Salsa?
 
 `cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'mild'  | sort -k 1 | wc -l`<br>
 * Mild: 351<br><br>
+
 `cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'medium'| sort -k 1 | wc -l`<br>
 * Medium: 355<br><br>
+
 `cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'hot' | sort -k 1 | wc -l`<br>
 * Hot: 259<br>
 
