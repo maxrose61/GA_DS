@@ -2,7 +2,11 @@
 
 
 ### Description of data file
+
 **Structure of the file**<br>
+=======
+**Structure of the file**
+>>>>>>> e0a97ad992df09432f9f4c8019e4874592b4b7ae
 To retrieve the column headers, I used a head command: `head -n 1 chipotle.csv`
 
 To retrieve the column headers, I used a head command: `head -n 1 chipotle.csv`
@@ -96,6 +100,7 @@ maxr-mp:DS-SEA-4 maxrose$
 `for file in $(find . | grep -E 'tsv|csv'); do grep -i 'dictionary' $file| wc -w; done | paste -s -d+ - | bc`
 * 188
 
+
 ## Hot, Medium or Mild?
 
 How do people like their Salsa?
@@ -106,6 +111,7 @@ How do people like their Salsa?
 * Medium: 355
 `cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'hot' | sort -k 1 | wc -l`<br>
 * Hot: 259
+
 
 
 
