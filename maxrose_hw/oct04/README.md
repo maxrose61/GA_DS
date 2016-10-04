@@ -34,23 +34,23 @@ wc -l chipotle.tsv
 ### Let's Talk Burritos
 What is more popular?
 cat chipotle.tsv | cut -f3 | grep -i 'burrito' | sort | uniq -c
-* 91 Barbacoa Burrito
-*  6 Burrito
-* 59 Carnitas Burrito
-* 553 Chicken Burrito
-* 368 Steak Burrito
-* 95 Veggie Burrito
+* 91 Barbacoa Burrito *
+*  6 Burrito *
+* 59 Carnitas Burrito *
+* 553 Chicken Burrito *
+* 368 Steak Burrito *
+* 95 Veggie Burrito *
   
 Looks like chicken is the winner!
 
 #### You want beans with that burrito?
 
 `cat chipotle.tsv | cut -f3,4 | grep -i 'chicken burrito' | grep -i 'pinto bean' | sort -k 1 | wc -l`<br>
-* 105
+* 105 *
 
 
 `cat chipotle.tsv | cut -f3,4 | grep -i 'chicken burrito' | grep -i 'black bean' | sort -k 1 | wc -l`<br> 
-* 282
+* 282 *
 
 
 Black beans are more popular more than a 2 to 1 margin.
@@ -94,18 +94,18 @@ Black beans are more popular more than a 2 to 1 margin.
 Searching from the root of my local class repository:
 maxr-mp:DS-SEA-4 maxrose$ 
 `for file in $(find . | grep -E 'tsv|csv'); do grep -i 'dictionary' $file| wc -w; done | paste -s -d+ - | bc`
-* 188
+* 188 *
 
 ## Hot, Medium or Mild?
 
 How do people like their Salsa?
 
 `cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'mild'  | sort -k 1 | wc -l`<br>
-* Mild: 351<br><br>
+* Mild: 351 *<br><br>
 `cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'medium'| sort -k 1 | wc -l`<br>
-* Medium: 355<br><br>
+* Medium: 355 *<br><br>
 `cat chipotle.tsv | cut -f4 | grep -i 'salsa' | grep -i 'hot' | sort -k 1 | wc -l`<br>
-* Hot: 259<br>
+* Hot: 259 *<br>
 
 
 
