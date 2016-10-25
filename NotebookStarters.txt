@@ -1,0 +1,80 @@
+# Basic Data science imports
+%matplotlib inline
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# use requests library to interact with a URL
+import requests
+from requests.auth import HTTPBasicAuth
+url = 'http://www.totaleclips.com/api/v1/assets?vendorid=1525&tms_rootid=12009493'
+cred = ('apitester', 'apitester')
+r = requests.get(url,auth=cred )
+rdf = pd.DataFrame(r.json())
+
+# sklearn
+linreg = LinearRegression()
+linreg.fit(X, y)
+print linreg.intercept_
+print linreg.coef_
+
+
+from sklearn import metrics
+print 'MAE:', metrics.mean_absolute_error(true, pred)
+print 'MSE:', metrics.mean_squared_error(true, pred)
+print 'RMSE:', np.sqrt(metrics.mean_squared_error(true, pred))
+
+# train_test_split
+from sklearn.cross_validation import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+knn = KNeighborsClassifier(n_neighbors=1)
+
+# define a function that accepts a list of features and returns testing RMSE
+def train_test_rmse(feature_cols):
+    X = bikes[feature_cols]
+    y = bikes.total
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=123)
+    linreg = LinearRegression()
+    linreg.fit(X_train, y_train)
+    y_pred = linreg.predict(X_test)
+    return np.sqrt(metrics.mean_squared_error(y_test, y_pred))
+    train_test_split(X, y, random_state=123)
+
+# Seaborn
+sns.lmplot(x='temp_F', y='total', data=bikes, aspect=1.5, scatter_kws={'alpha':0.2})
+# multiple scatter plots in Seaborn
+sns.pairplot(bikes, x_vars=feature_cols, y_vars='total', kind='reg')
+# visualize correlation matrix in Seaborn using a heatmap
+sns.heatmap(bikes.corr())
+
+
+# boxplot
+
+# box plot of rentals, grouped by season
+bikes.boxplot(column='total', by='season')
+
+
+
+
+# RMSE
+# split X and y into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=123)
+
+# create a NumPy array with the same shape as y_test
+y_null = np.zeros_like(y_test, dtype=float)
+
+# fill the array with the mean value of y_test
+y_null.fill(y_test.mean())
+y_null
+
+
+# compute null RMSE
+np.sqrt(metrics.mean_squared_error(y_test, y_null))
+
+
+
+
+
+
