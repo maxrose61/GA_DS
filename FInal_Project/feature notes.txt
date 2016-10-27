@@ -1,0 +1,18 @@
+final project feature ideas
+
+cluster works by album position
+cluster by number of recording per work
+recording value count number of countries
+popularity by year
+releases by year
+covers by year of original work
+
+
+DEFINE FEATURES
+
+SONG, Number of recordings, number of releases (by recoding), number of covers, mean ratings(originals), mean ratings(covers) -- predict this?
+predict popularity of original by num and rating of covers?
+
+MEASURE AUC for both bands
+
+REVIEW 11_Clustering!!!
