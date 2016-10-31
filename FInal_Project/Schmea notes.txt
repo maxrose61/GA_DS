@@ -1,0 +1,6 @@
+Schema Notes
+
+
+l_artist_work:
+	Composer = entity0
+	Work/Song = entity1

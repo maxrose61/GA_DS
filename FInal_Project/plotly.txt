@@ -1,0 +1,7 @@
+plotly.tools.set_credentials_file(username='maxrose', api_key='zaispfh07a')
+
+
+plotly.tools.set_credentials_file(username='maxrose', api_key='zaispfh07a')
+
+
+plotly.tools.set_config_file(world_readable=False,sharing='private')
