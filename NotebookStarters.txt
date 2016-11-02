@@ -86,7 +86,20 @@ y_null
 # compute null RMSE
 np.sqrt(metrics.mean_squared_error(y_test, y_null))
 
+## NLP
+import pandas as pd
+import numpy as np
+import scipy as sp
+from sklearn.cross_validation import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
+from sklearn import metrics
+from textblob import TextBlob, Word
+from nltk.stem.snowball import SnowballStemmer
+%matplotlib inline
 
+NULL ACCURACY 13_natural_language_processing cell 28
 
 
 
