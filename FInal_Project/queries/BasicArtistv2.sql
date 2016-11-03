@@ -1,4 +1,4 @@
---drop table  allalbums
+-- drop table  allalbums
 
 select distinct
 ac.id as artistid
@@ -11,14 +11,15 @@ ac.id as artistid
 ,rel.release_group
 --,rc.country
 --,rc.date_year
-,rc.date_year || '-' || rc.date_month || '- ' || rc.date_day as releasedate
+,coalesce(rc.date_year || '-' || rc.date_month || '-'  || rc.date_day, '1980-01-01') as releasedate
 ,lab.name as labelname
+,area.id as countryid
 ,area.name as countryname
 ,wo.id as workid
 
 ,coalesce(rm.rating, 0) as rating
 
-into temporary table allalbums
+into allalbums
 
 from artist_credit ac
 join recording re on ac.id  = re.artist_credit
@@ -27,7 +28,7 @@ join medium med on tr.medium = med.id
 join medium_format mf on med.format = mf.id and mf.id in (1)  -- 1 = CD, 7 = Vinyl
 join release rel on med.release = rel.id
 join release_group rg on rel.release_group = rg.id
-left join release_group_secondary_type_join stj on rg.id = stj.release_group
+--left join release_group_secondary_type_join stj on rg.id = stj.release_group
 --join (select id, 
 join release_country rc on rel.id = rc.release
 join country_area ca on rc.country = ca.area
@@ -39,13 +40,23 @@ join work wo on lrw.entity1 = wo.id and wo.type = 17
 left join recording_meta rm on lrw.id = rm.id
 
 where ac.id in (825,303)
-and area.id in (221,222)
+--and area.id in (221,222)
 and rel.status = 1
 order by 1,2,4
 
 --limit 5000
 
---select * from  allalbums limit 10
+--select * from  allalbums  limit 100
+
+-- select distinct releasedate from  allalbums       limit 100
 
 -- stones 825
 -- beatles 303
+
+/*
+update allalbums set releasedate = coalesce(releasedate, '1980-01-01')::date
+
+*/
+
+
+
