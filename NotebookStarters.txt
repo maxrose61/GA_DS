@@ -101,6 +101,35 @@ from nltk.stem.snowball import SnowballStemmer
 
 NULL ACCURACY 13_natural_language_processing cell 28
 
+TfidfVectorizer
+USE fit_transform after define X, and again on Xtrain
 
+TextBlob:
+	sentiment
+	word/sentence split
+	spell correct
+	
+	
+FEATURES = columns with usable data i.e. numeric?
+
+PCA Dimensionality reduction
+%matplotlib inline
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+from sklearn import decomposition ###
+from sklearn.cross_validation import cross_val_score
+
+iris['species_num'] = iris.species.map({'Iris-setosa':0, 'Iris-versicolor':1, 'Iris-virginica':2})
+
+Decision Trees
+
+PROJECT compute null accuracies!!!
+
+Run cross validation in end to validate model.
+
+hitters.dropna(inplace=True)
 
 
