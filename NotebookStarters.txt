@@ -52,6 +52,8 @@ def train_test_rmse(feature_cols):
     linreg.fit(X_train, y_train)
     y_pred = linreg.predict(X_test)
     return np.sqrt(metrics.mean_squared_error(y_test, y_pred))
+
+
     train_test_split(X, y, random_state=123)
 
 # Seaborn
@@ -108,8 +110,8 @@ TextBlob:
 	sentiment
 	word/sentence split
 	spell correct
-	
-	
+
+
 FEATURES = columns with usable data i.e. numeric?
 
 PCA Dimensionality reduction
