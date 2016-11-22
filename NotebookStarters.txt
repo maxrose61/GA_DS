@@ -134,4 +134,47 @@ Run cross validation in end to validate model.
 
 hitters.dropna(inplace=True)
 
+### Time Series
+data2 = pd.read_csv('../data/rossmann.csv', skipinitialspace=True, low_memory=False,parse_dates=['Date'])
+Resample == groupby for dates
+data['Sales'].resample('D').mean().autocorr(lag=14)
+
+
+Time Series modeling
+no standard cross validation
+
+detrending - remove up or down trend. Standard Scaler
+simialr to error in linear regression
+diff
+
+ARIMA
+AR auto regression
+AR(p) - lag
+MA moving avg model
+takes previous error for prediction
+
+ARMA combine autoregressive and moving average
+
+ARIMA auto regressibe integrated moving average model
+predict the difference of the model
+ARIMA(p,d,q)
+ARIMA not relying on stationary data.
+
+PLOT AUTOCORR
+%matplotlib inline
+from pandas.tools.plotting import autocorrelation_plot
+autocorrelation_plot(store1_data.Sales)
+STATSMODELS
+from statsmodels.graphics.tsaplots import plot_acf
+plot_acf(store1_data.Sales, lags=10)
+## allows fixed number of lag values
+
+from statsmodels.tsa.arima_model import ARIMA
+
+
+SCATTER CHART
+enr_complete.plot(kind='scatter',x='OverdueActivities',y='gradeID')
+
+BAR CHARTS for quick Vis of individual Feature
+parcel.StreetSurface.value_counts().plot(kind='bar')
 
