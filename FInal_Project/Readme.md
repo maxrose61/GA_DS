@@ -6,7 +6,7 @@ With an instance of the Musicbrainz server/database installed and running in my 
 
 I decided early on to aggregate the number of releases and re-releases for use as a feature, making the assumption that popular or impactful recordings will have a greater number of releases than lesser material. Aggregation occured both the new tables I generated in the database and later in the DataFrames where addtional data was aggregated and merged into a single csv to build and test models on.
 
-The queries can be reviewed here [Queries located here](../queries).<br><br>
+The queries can be reviewed here [Queries located here](queries).<br><br>
 
 A second query and export consists of all the versions (aka "covers") of the Beatles and Stones original material that I could find in the database. I extracted each artist and each version, expecting to use the number of times covered and number of artists covering in the modeling. I excluded from this csv export any songs not written by the two bands, presuming that their original work would be most relavant to my model. It should be noted that each band themselves recorded a significant number of covers, particularly early in their respective careers. The Rolling Stones, with a body of work spanning over 50 years, continue to incorporate non-original songs in their work to this day.<br><br>
 
