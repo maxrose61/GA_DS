@@ -84,7 +84,6 @@ y_null = np.zeros_like(y_test, dtype=float)
 y_null.fill(y_test.mean())
 y_null
 
-
 # compute null RMSE
 np.sqrt(metrics.mean_squared_error(y_test, y_null))
 
