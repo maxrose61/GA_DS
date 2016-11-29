@@ -20,6 +20,4 @@ Notebook 1 [_maxrose_dsFinal_Acquire_Clean_Merge](_maxrose_dsFinal_Acquire_Clean
 
 Notebook 2 [Quantifying_Influence_Analysis_maxrose_DSFinal](Quantifying_Influence_Analysis_maxrose_DSFinal.ipynb)
 <br><br>
-At the time of this draft, I have noted some issues with the data that will likely need to be resolved through slight modifications to the SQL queries, particularly around finding or aggregating accurate release dates, which are to be considered in the analysis and modeling of the data.
-
 
